@@ -20,8 +20,9 @@ jobs:
       - name: Install Flet
         run: pip install flet
 
-      - name: Build Unsigned App with Icon
-        run: yes | flet build ios-simulator --verbose --icon icon.png
+      - name: Build Unsigned App
+        # Removed the broken --icon flag so it builds without crashing
+        run: yes | flet build ios-simulator --verbose
         
       - uses: actions/upload-artifact@v4
         with:
