@@ -12,17 +12,10 @@ jobs:
         with:
           python-version: '3.10'
           
-      # This block caches the Flutter SDK to speed up future runs
-      - name: Cache Flutter
-        uses: actions/cache@v4
-        with:
-          path: /Users/runner/Library/Android/sdk
-          key: ${{ runner.os }}-flutter-${{ flet-version }}
-          
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.41.7'
-          cache: true # Enables built-in action caching
+          cache: true
 
       - name: Install Flet
         run: pip install flet
