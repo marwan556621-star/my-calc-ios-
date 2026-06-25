@@ -21,10 +21,10 @@ jobs:
         run: pip install flet
 
       - name: Build Unsigned App
-        # Removed the broken --icon flag so it builds without crashing
         run: yes | flet build ios-simulator --verbose
         
       - uses: actions/upload-artifact@v4
         with:
           name: my-ios-calculator
-          path: build/ios/simulator/*.app
+          # Corrected to point to the exact Flet output folder
+          path: build/ios-simulator/
